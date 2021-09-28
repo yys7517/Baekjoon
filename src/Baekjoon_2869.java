@@ -18,7 +18,9 @@ public class Baekjoon_2869 {
         int B = Integer.parseInt( st.nextToken());
         int V = Integer.parseInt( st.nextToken());
 
+
         int days = (V-B) / (A-B);
+
         if ( (V-B) % (A-B) != 0 ) {
             days++;
         }
