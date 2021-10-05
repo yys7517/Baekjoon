@@ -44,7 +44,7 @@ public class Baekjoon_1145 {
         while (true) {
 
             for (int i = 0; i < 5; i++) {       // 배열을 돌면서 나눠지는지 확인한다.
-                if ( min % input[i] == 0)
+                if ( min % input[i] == 0 )
                     cnt++;
             }
 
