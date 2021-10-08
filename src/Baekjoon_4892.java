@@ -15,18 +15,19 @@ public class Baekjoon_4892 {
                 break;
             else {
                 TestCase++;
-                sb.append(TestCase+". ");
+                sb.append(TestCase+". ");   // "1. "
                 int n1 = n0 * 3;
                 if ( n1 % 2 == 0 ) {
-                    sb.append("even ");
+                    sb.append("even ");     // "1. even "
                 }
                 else
-                    sb.append("odd ");
+                    sb.append("odd ");      // "1. odd "
                 n0 = n1 % 2 == 0 ? n1/2 : (n1+1)/2; // n2 = n1/2 : n1+1/2
 
                 n0 *=3;         // n3 = 3 * n2;
-                n0 /= 9;
-                sb.append(n0).append("\n");
+                n0 /= 9;        // n4 = n3 / 9 ( 나눗셈의 몫 = 정수 값 )
+
+                sb.append(n0).append("\n");  // "1. even(or odd) n4\n"
 
                 n0 = n1 % 2 == 0 ? 2*n0 : 2*n0 + 1;
 
