@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.HashMap;
 
-public class Baekjoon_1076 {
+public class BOJ_1076 {
     // 저항, 백준 1076
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader(System.in));

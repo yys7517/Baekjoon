@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-public class Baekjoon_1333 {
+public class BOJ_1333 {
     // 부재중 전화
     public static void main(String[] args) throws IOException {
 

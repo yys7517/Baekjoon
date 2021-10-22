@@ -1,14 +1,19 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Baekjoon_1212 {
+public class BOJ_1212 {
     // 8진수 -> 2진수
-    static String[] octToBin = {"000", "001", "010", "011", "100", "101", "110", "111"};
+     static String[] octToBin = {"000", "001", "010", "011", "100", "101", "110", "111"};
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)  throws IOException {
         Scanner sc  = new Scanner( System.in );
         char [] oct = sc.next().toCharArray();
-        StringBuilder sb = new StringBuilder();
+       // BufferedReader br = new BufferedReader( new InputStreamReader( System.in) );
+        ///////String input = br.readLine();
+        StringBuilder sb = new StringBuilder("");
 
         if ( oct.length == 1 && oct[0] == '0') {
             System.out.println( 0 );
@@ -24,31 +29,30 @@ public class Baekjoon_1212 {
         }
 
         // 8진수 -> 2진수 변환. 8진수 1자리 값을 -> 3자리 2진수 값으로 변환 가능.
-        /*
-        for ( int i = 0; i < sb.length(); i++ ){
+/*
+        for ( int i = 0; i < input.length(); i++ ) {
             String value = "";
-            int a = Integer.parseInt (String.valueOf(sb.charAt(i)) );
-            System.out.println( a );
-            if ( a >= 0 && a <= 7 ) {
-                if  ( a == 0 ) {
-                    System.out.println( 0 );
-                    break;
+            int a = Integer.parseInt(String.valueOf( input.charAt(i) ));
+            System.out.println(a);
+            if (a > 0 && a <= 7) {
+                while ( a > 0 ) {
+                    int rest = a % 2;
+                    value = rest + value;
+                    a /= 2;
                 }
-                else {
-                    while( a > 0 ) {
-                        int rest = a % 2;
-                        value = rest + value;
-                        a /= 2;
-                    }
-                    if ( i == 0 ) {
-                        sb1.append( String.format("%d", Integer.parseInt(value)) );
-                    }
-                    else
-                        sb1.append( String.format("%03d", Integer.parseInt(value)) );
+                sb.append( String.format("%03d",Integer.parseInt(value)) );
+                while ( sb.charAt(0) == '0' ) {
+                    sb.deleteCharAt(0);
                 }
-            }
-        }*/
 
+            }
+            else if ( a == 0) {
+                System.out.println(0);
+                break;
+            }
+
+        }
+*/
         System.out.println( sb );
 
 

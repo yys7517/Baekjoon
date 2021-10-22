@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 
-public class Baekjoon_1247 {
+public class BOJ_1247 {
     // N개의 정수가 주어지면, 이 정수들의 합 S의 부호를 구하는 프로그램을 작성하시오.
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader( System.in) );

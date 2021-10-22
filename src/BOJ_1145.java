@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjoon_1145 {
+public class BOJ_1145 {
     // 적어도 대부분의 배수.
     // 다섯 개의 자연수.
     // 위의 수 중 적어도 세 개로 나누어지는 가장 작은 자연수.

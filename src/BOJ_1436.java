@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 60666, 61666, 62666, 63666, 64666, 65666, 66600, 66601, ⋯, 66659, 66660, ⋯
 
  */
-public class Baekjoon_1436 {
+public class BOJ_1436 {
     // 영화감독 숌
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader( System.in ));

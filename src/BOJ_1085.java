@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjoon_1085 {
+public class BOJ_1085 {
     // 직사각형에서의 탈출
     // 1 ≤ w, h ≤ 1,000
     // 1 ≤ x ≤ w-1
