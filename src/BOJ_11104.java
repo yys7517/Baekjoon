@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Baekjoon_11104 {
+public class BOJ_11104 {
     // Fridge of Your Dreams
     // 그냥 2진수를 10진수 값으로 변환하는 문제
     // 맨 처음 테스트 케이스가 주어짐. N

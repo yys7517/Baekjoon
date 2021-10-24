@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Baekjoon_10250 {
+public class BOJ_10250 {
     // ACM 호텔
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader( System.in ));

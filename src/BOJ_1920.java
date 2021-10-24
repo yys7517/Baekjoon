@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjoon_1920 {
+public class BOJ_1920 {
     // 수 찾기
     // 이진 탐색 문제..
 

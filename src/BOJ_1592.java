@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 /*import java.util.Arrays;*/
 import java.util.StringTokenizer;
 
-public class Baekjoon_1592 {
+public class BOJ_1592 {
     // 영식이와 친구들
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

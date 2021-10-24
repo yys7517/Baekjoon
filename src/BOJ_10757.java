@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class Baekjoon_10757 {
+public class BOJ_10757 {
     public static void main(String[] args) throws IOException {
         // 큰 수 A+B
         BufferedReader br = new BufferedReader( new InputStreamReader( System.in) );

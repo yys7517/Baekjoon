@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 //import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Baekjoon_2798 {
+public class BOJ_2798 {
     // 블랙잭
     // N 장의 카드 개수.
     // 3 장의 카드를 고름.

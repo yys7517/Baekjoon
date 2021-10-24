@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Baekjoon_4562 {
+public class BOJ_4562 {
     // No Brainer
     // 테스트케이스 수 N
     // 좀비가 먹는 뇌의 수 X

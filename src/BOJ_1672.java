@@ -7,11 +7,12 @@ public class BOJ_1672 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader( new InputStreamReader( System.in));
         int n = Integer.parseInt( br.readLine() );
-        StringBuilder dna = new StringBuilder( br.readLine() );
+        String dna = br.readLine();
 
         if ( n != 1 ) {
-            while ( dna.length() > 1 ) {
-                dna.replace(0, 2 ,haedok( dna.charAt( 0 ), dna.charAt( 1 ) ) +"" );
+            for ( int i = 0; i < n-1; i++ ) {
+                dna = dna.substring(0,n-2-i) + haedok( dna.charAt(n-2-i),dna.charAt(n-1-i));
+                //System.out.println(dna);
             }
             System.out.println( dna );
         }

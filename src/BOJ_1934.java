@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Baekjoon_1934 {
+public class BOJ_1934 {
     // 최소공배수
     // 유클리드 호제법
     // 최대공약수를 이용하여 최소공배수를 구할 수 있다.

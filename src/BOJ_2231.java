@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Baekjoon_2231 {
+public class BOJ_2231 {
     // 분해합
     // 브루트포스 알고리즘
     public static void main(String[] args) throws IOException {
