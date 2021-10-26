@@ -25,6 +25,7 @@ public class BOJ_1977 {
         // 60보다 더 작은 제곱근인 7부터 하게 되므로 시작이 60인데, 시작을 49로 하게된다.
         // 따라서 +1을 준 값을 시작으로 한다.
         // 10의 제곱근인 100은 포함이 안되므로 i <= end까지 이다.
+
         else if ( M > start ) {
             for ( int i = start + 1; i <= end; i++ ) {
                 list.add( i * i );
