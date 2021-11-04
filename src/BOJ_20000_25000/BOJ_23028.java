@@ -24,11 +24,11 @@ public class BOJ_23028 {
         }
 
         if (major >= 66 && total >= 130)
-            System.out.print("NICE");
+            System.out.print("Nice");
             // 아리가 졸업하려면 총 130학점 이상 들어야 하고, 그중 66학점 이상은 전공학점이어야 한다.
         else {
             int cnt = 8 - N;
-            int Ycnt = 12;   // 수강하는 비전공과목 개수.
+            int Ycnt = 6 * cnt;   // 수강하는 비전공과목 개수.
 
             for (int i = 0; i < cnt; i++) {
                 int Xcnt = 0;   // 수강하는 전공과목 개수.
@@ -37,9 +37,9 @@ public class BOJ_23028 {
                         break;
                     major += 3;
                     total += 3;
-                    Xcnt++;
-                    Ycnt--;
-                    X[i]--;
+                    Xcnt++; // 전공과목을 수강하는 개수가 늘어나면
+                    Ycnt--; // 비전공과목을 수강하는 개수가 줄어든다.
+                    X[i]--; // 학기 내에 전공과목의 수 감소
                 }
             }
 
@@ -56,7 +56,7 @@ public class BOJ_23028 {
             System.out.println( total );
 
             if (major >= 66 && total >= 130)
-                System.out.print("NICE");
+                System.out.print("Nice");
             else
                 System.out.print("Nae ga wae");
         }
