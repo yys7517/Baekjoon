@@ -58,6 +58,7 @@ public class BOJ_11866 {
                 // result라는 이름의 queue에 제거된 순서대로 담게 된다.
                 int val = queue.poll();
                 result.offer( val );
+
             }
 
 
