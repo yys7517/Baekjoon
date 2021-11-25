@@ -28,23 +28,23 @@ public class BOJ_10866 {
             String command = st.nextToken();
             int value;
             switch ( command ) {
+
                 case "push_back" :
                     value = Integer.parseInt( st.nextToken() );
                     deque.offerLast( value );
                     break;
+
                 case "push_front" :
                     value = Integer.parseInt( st.nextToken() );
                     deque.offerFirst( value );
                     break;
+
                 case "pop_back" :
-                    if ( deque.isEmpty() ) {
+                    if ( deque.isEmpty() )
                         System.out.println( -1 );
-                        break;
-                    }
-                    else{
+                    else
                         System.out.println( deque.pollLast() );
-                        break;
-                    }
+                    break;
 
                 case "pop_front" :
                     if ( deque.isEmpty() )
@@ -52,33 +52,31 @@ public class BOJ_10866 {
                     else
                         System.out.println( deque.pollFirst() );
                     break;
+
                 case "size" :
                     System.out.println( deque.size() );
                     break;
+
                 case "empty" :
                     if( deque.isEmpty() )
                         System.out.println( 1 );
                     else
                         System.out.println( 0 );
                     break;
+
                 case "front" :
-                    if ( deque.isEmpty() ) {
+                    if ( deque.isEmpty() )
                         System.out.println( -1 );
-                        break;
-                    }
-                    else {
+                    else
                         System.out.println( deque.peekFirst() );
-                        break;
-                    }
+                    break;
+
                 case "back" :
-                    if ( deque.isEmpty() ) {
+                    if ( deque.isEmpty() )
                         System.out.println( -1 );
-                        break;
-                    }
-                    else {
+                    else
                         System.out.println( deque.peekLast() );
-                        break;
-                    }
+                    break;
             }
         }
     }
