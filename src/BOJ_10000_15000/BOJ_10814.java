@@ -1,4 +1,4 @@
-package BOJ_1000_5000;
+package BOJ_10000_15000;
 
 import java.util.*;
 
