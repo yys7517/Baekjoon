@@ -30,8 +30,7 @@ public class BOJ_7568 {
             People[ i ][ 1 ] = Integer.parseInt( st.nextToken() );  // 키
         }
 
-        int [] result = new int[ N ];       // 덩치 등 수 배열.
-
+        int [] result = new int[ N ];       // 덩치 등 수 결과를 담는 배열.
 
         // 만일 자신보다 더 큰 덩치의 사람이 k명이라면 그 사람의 덩치 등수는 k+1
         for (int i = 0; i < N; i++) {
