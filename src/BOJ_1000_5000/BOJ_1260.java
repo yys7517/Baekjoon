@@ -107,16 +107,20 @@ public class BOJ_1260 {
         // DFS, 재귀, 인접 행렬, V 정점 부터 시작한다.
         // V : 탐색을 시작할 정점 번호.
         DFS( V );
+
+        // DFS 경로 출력.
         for ( int V : DFS_route ) {
             System.out.printf("%d ", V );
         }
 
-        System.out.println();
+        System.out.println();   // 개행
+        visit = new boolean[1001];  // 방문 정보 초기화.
 
         // BFS, 큐 사용, 인접 행렬, V 정점 부터 시작한다.
         // V : 탐색을 시작할 정점 번호.
-        visit = new boolean[1001];  // 방문 정보 초기화.
         BFS( V );
+
+        // BFS 경로 출력.
         for ( int V : BFS_route ) {
             System.out.printf("%d ", V );
         }
