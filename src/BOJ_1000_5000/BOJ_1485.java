@@ -39,7 +39,7 @@ public class BOJ_1485 {
                 }
             }
             Arrays.sort( len );
-            // System.out.println( Arrays.toString( len ));
+            //System.out.println( Arrays.toString( len ));
 
             // 네 변의 길이가 모두 같지 않다면 ?
             for (int i = 1; i < 4; i++) {
