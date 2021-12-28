@@ -3,6 +3,7 @@ package BOJ_10000_15000;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
@@ -90,6 +91,95 @@ public class BOJ_10816 {
 
         // 2. 이진 탐색을 사용한 풀이 ( lower-bound , upper-bound )
 
+        int N = Integer.parseInt( br.readLine() );
+        int [] cards = new int[ N ];
+        StringTokenizer token1 = new StringTokenizer( br.readLine(), " ");
+
+        for (int i = 0; i < N; i++) {
+            cards[i] = Integer.parseInt( token1.nextToken() );
+        }
+
+        Arrays.sort( cards );   // 이진 탐색을 하기 전 미리 정렬을 하여야 한다.
+
+        int M = Integer.parseInt( br.readLine() );
+        StringTokenizer token2 = new StringTokenizer(br.readLine(), " ");
+        for (int i = 0; i < M; i++) {
+            int find = Integer.parseInt( token2.nextToken() );
+//            System.out.println( Arrays.toString( cards ) );
+//            System.out.println(upperBound( cards , find ) );
+//            System.out.println(lowerBound( cards , find ));
+            result.append( upperBound( cards , find ) - lowerBound( cards , find ) ).append(" ");
+        }
+
         System.out.println(result);
+    }
+    // lowerBound
+
+    // 찾고자 하는 값을 key라고 할 때,
+    // key 이상의 값이 처음으로 나타나는 위치를 lower-bound(하한) 이라고 한다.
+    // 따라서 찾고자 하는 숫자 카드의 이상의 값이 처음으로 나타나는 위치이다.
+    // 찾고자 하는 값이 있다면, 그 중복된 숫자 카드들 중 제일 첫 번째 위치를 lower-bound가 가리키게 되고,
+    //             값이 없다면, 그 값 바로 다음 값을 가리키게 된다.
+
+    // 하한 값을 찾는 메서드이므로, 가장 왼쪽에 있는 key 값을 찾아야 한다.
+    // 그러므로 상한선을 내려야 한다.
+    private static int lowerBound( int[] arr, int key ) {
+        int lo = 0;
+        int hi = arr.length;
+
+        while ( lo < hi ) {
+            int mid = ( lo + hi ) / 2;
+
+            // 오버플로우 방지.
+            // int mid = lo + ( ( hi - lo ) / 2 );
+            // 중간 값 = 시작점 + ( 거리 차 / 2 )
+            // 중간 지점은 시작점으로 부터 거리차의 절반 만큼 간 지점이다.
+            /*
+             * key의 값이 중간위치보다 작거나 같을 경우
+             * 왼쪽으로 탐색하기 위해 상한 값을 내린다.
+             * 상한 값을 내리게 되면, mid값이 점점 왼쪽으로 가게 된다. ( 작아진다. )
+             */
+            if ( key <= arr[mid] ) {
+                hi = mid;
+            }
+            else    // key값이 mid값보다 클 경우 ? 키 값보다 작은 값으로 온 것이다.
+                lo = mid + 1; // 다시 오른쪽으로 탐색해야 한다.
+        }   // lo 값이 hi값보다 같아지거나 커지면 while문이 종료.
+
+        return lo;
+    }
+
+    // upperBound
+
+    // 상한 값을 찾는 메서드이므로, key값의 가장 오른쪽에 있는 다음 값을 찾아야 한다.
+    // 따라서 하한 값을 올려줘야 한다.
+    private static int upperBound( int[] arr, int key ) {
+        int lo = 0;
+        int hi = arr.length;
+
+        while ( lo < hi ) {
+            int mid = ( lo + hi ) / 2;
+
+            // 오버플로우 방지.
+            //int mid = lo + ( ( hi - lo ) / 2 );
+            // 중간 값 = 시작점 + ( 거리 차 / 2 )
+            // 중간 지점은 시작점으로 부터 거리차의 절반 만큼 간 지점이다.
+            /*
+             * key의 값의 상한 값을 구하는 것이다.
+             * 따라서 key의 값이 중간 값보다 작을 경우
+             * 중간 값은 상한 값이 될 수 있다.
+             */
+            if( key < arr[mid] ) {
+                hi = mid;
+            }
+            // key의 값이 중간값보다 크거나 같을 경우.
+            // 상한 값을 찾기 위해 오른쪽으로 탐색한다.
+            // 하한 값을 올려준다.
+            else {
+                lo = mid + 1;
+            }
+        }
+
+        return lo;
     }
 }
