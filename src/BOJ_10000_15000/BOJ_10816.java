@@ -9,16 +9,47 @@ import java.util.StringTokenizer;
 public class BOJ_10816 {
     // 숫자 카드 2
     // N 개의 숫자카드 중 M 개의 숫자 카드를 찾는 문제
-    // M 개의 숫자카드의 인덱스 번호를 출력.
+    // M 개의 숫자카드가 주어지는데
+    // 이 M개의 숫자 카드가 있다면, 그 숫자 카드의 개수를 순서대로 출력하는 문제이다.
 
-    // 해시를 활용한 풀이
+    // 해시맵과 이진 탐색을 활용하여 풀이할 수 있다.
 
-    // HashMap cards< 값, 개수 >
+    // 자바에서의 binarySearch 함수는 lower-bound (하한) 을 사용하는 이진 탐색을 사용한다.
+    // 이 때, binarySearch 는 값이 존재한다면, 값의 인덱스 값을 반환하고, 존재하지 않는다면 음수 값을 반환한다.
+
+    // 이 문제에서는 값이 존재하냐 ? 존재한다면 개수는 몇 개 인가? 를 구하는 문제이므로
+    // 우리는 upper-bound(상한), lower-bound(하한)을 사용한 이진 탐색을 통하여 문제를 풀이할 수 있다.
+
+    // lower-bound(하한)
+    // 찾고자 하는 값을 key라고 할 때,
+    // key 이상의 값이 처음으로 나타나는 위치를 lower-bound(하한) 이라고 한다.
+    // 따라서 찾고자 하는 숫자 카드의 이상의 값이 처음으로 나타나는 위치이다.
+    // 찾고자 하는 값이 있다면, 그 중복된 숫자 카드들 중 제일 첫 번째 위치를 lower-bound가 가리키게 되고,
+    //             값이 없다면, 그 값 바로 다음 값을 가리키게 된다.
+
+
+    // upper-bound(상한)
+    // 찾고자 하는 값을 key라고 할 때,
+    // key값을 초과하는 값이 처음으로 나타나는 위치를 upper-bound(상한) 이라고 한다.
+    // 따라서 찾고자 하는 숫자 카드의 초과의 값이 처음으로 나타나는 위치이다.
+
+    // 찾고자 하는 key값이 있든 없든, 그 key 값을 초과하는 처음 값을 가리키게 된다.
+
+    // 따라서 우리는 찾고자 하는 key값인 숫자 카드의 개수를 (상한-하한)을 사용하여 구할 수 있다.
+    // 값이 없다면, 하한과 상한은 같은 위치를 가리키게 된다. ( lower-bound == upper-bound )
+
+    // 이 원리를 사용하여 이진 탐색을 사용해보자.
+
+
+    private static StringBuilder result = new StringBuilder();
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        // 1. 해시맵을 활용한 풀이.
+        /*
+        // HashMap cards< 값, 개수 >
         HashMap<String, Integer> cards = new HashMap<>();
-        StringBuilder result = new StringBuilder();
 
         // 입력
         int N = Integer.parseInt(br.readLine());
@@ -42,13 +73,22 @@ public class BOJ_10816 {
 
         for (int i = 0; i < M; i++) {
             find = token2.nextToken();  // 찾는 숫자 카드
-            count = cards.get(find);    // 개수
-                    // 찾는 숫자 카드가 있다면 ? 개수를 추가.
-            if (count != null)
-                result.append(count).append(" ");
-            else    // 찾는 숫자 카드가 없다면 ? 개수가 0이라고 하고 추가.
-                result.append(0).append(" ");
+//            count = cards.get(find);    // 개수
+//                    // 찾는 숫자 카드가 있다면 ? 개수를 추가.
+//            if (count != null)
+//                result.append(count).append(" ");
+//            else    // 찾는 숫자 카드가 없다면 ? 개수가 0이라고 하고 추가.
+//                result.append(0).append(" ");
+
+            // getOrDefault 메소드를 활용.
+            // key에 따른 value 값이 있다면, 가져오고, 없다면 defaultValue값을 반환하는 함수이다.
+
+            // 즉, 찾는 숫자 카드(find)가 있다면, 개수를 가져오고, 없다면 기본 값인 0의 개수 값을 반환한다.
+            result.append( cards.getOrDefault( find, 0 ) ).append(" ");
         }
+         */
+
+        // 2. 이진 탐색을 사용한 풀이 ( lower-bound , upper-bound )
 
         System.out.println(result);
     }
