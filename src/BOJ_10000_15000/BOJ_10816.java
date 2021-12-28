@@ -180,6 +180,6 @@ public class BOJ_10816 {
             }
         }
 
-        return lo;
+        return hi;
     }
 }
