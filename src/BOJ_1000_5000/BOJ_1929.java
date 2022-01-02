@@ -23,7 +23,7 @@ public class BOJ_1929 {
     }
     // 소수 : 1과 자기 자신으로만 나누어 지는 수..
     // 2,3,5,7,11,13,17,19 .....
-    public static boolean isPrime( int number ) {
+    private static boolean isPrime( int number ) {
         if( number == 1 )                       // 1은 소수가 아니다.
             return false;
         else if( number == 2 || number == 3 )   // 2와 3은 소수이다.
