@@ -3,7 +3,6 @@ package BOJ_1000_5000;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_2512 {
@@ -21,8 +20,8 @@ public class BOJ_2512 {
 
     private static BufferedReader br = new BufferedReader( new InputStreamReader( System.in ));
 
-    private static long budget;
-    private static long max = 0;
+    private static long budget;     // 현재 가진 총 예산
+    private static int max = 0;    // 요청 예산 중 최대 값.
 
     public static void main(String[] args) throws IOException {
         int N = Integer.parseInt( br.readLine() );
@@ -43,7 +42,7 @@ public class BOJ_2512 {
         // 총 예산으로 모든 요청에 배정될 수 있다면
         // 배정된 예산의 최대값을 출력.
 
-        long result;
+        int result;
 
         if ( sum <= budget )
             result = max;
@@ -83,15 +82,15 @@ public class BOJ_2512 {
         System.out.println( result );
     }
 
-    private static long ParameterSearch( int[] arr ) {
+    private static int ParameterSearch( int[] arr ) {
         // 최소값
-        long start = 0;
+        int start = 0;
 
         // 최대값 ( 마지노선 )
-        long end = max;
+        int end = max;
 
         while ( start <= end ) {        // 최소값이 마지노선과 일치해지거나 높아지면 반복을 중단한다.
-            long mid = ( start + end ) / 2;  //  현재 상한가
+            int mid = ( start + end ) / 2;  //  현재 상한가
 
             long current = 0;       // 총 사용 예산
 
