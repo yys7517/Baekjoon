@@ -3,6 +3,7 @@ package BOJ_1000_5000;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class BOJ_2512 {
@@ -34,8 +35,9 @@ public class BOJ_2512 {
             int tmp = Integer.parseInt(token.nextToken() );
             arr[i] = tmp;
             sum += tmp;
-            max = Math.max( max, tmp );
+            max = Math.max( max , tmp );
         }
+
 
         budget = Integer.parseInt( br.readLine() );
         // System.out.println(Arrays.toString(arr) );
@@ -46,6 +48,8 @@ public class BOJ_2512 {
 
         if ( sum <= budget )
             result = max;
+        // 모든 예산을 다 배정을 할 수 있는 것.
+        // 최대 요청 예산값이 정답.
 
         else {
             // 상한액 = 121
@@ -79,6 +83,7 @@ public class BOJ_2512 {
             // 총 예산으로 모든 요청에 배정될 수 없다면
             // 상한액을 정해야 함.
         }
+
         System.out.println( result );
     }
 
@@ -126,10 +131,11 @@ public class BOJ_2512 {
             // 이 경우가 걸리지 않더라도, start가 end 값을 넘어서는 시점에서 while문은 종료된다.
             else
                 return mid;
+
         }   // while
 
         // 반복문이 종료되는 조건 == start > end
-        // 마지노선 값이 end를 return
+        // 마지노선 값, 최대 값인 end를 return
         return end;
 
         // start가 upper bound가 되는 것.
