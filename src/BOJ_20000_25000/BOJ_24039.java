@@ -35,7 +35,8 @@ public class BOJ_24039 {
                     if( isPrime( q ) && ContinuousPrime( p , q ) ) {
                         mulList.add( p*q );     // 두 수의 곱을 리스트에 담는다.
                         // System.out.println( p + " , " + q + " : " + p*q);
-                        break;      // q를 증가시키는 for문을 break 하여 p를 증가시키고 q=p+1 부터해서 다시 반복문에 진입한다.
+                        break;      // q를 증가시키는 for문을 break 하여 p를 증가시키고
+                                    // q=p+1 부터해서 다시 반복문에 진입한다.
                     }
                 }
             }
