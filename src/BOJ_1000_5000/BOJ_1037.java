@@ -26,12 +26,17 @@ public class BOJ_1037 {
         for (int i = 0; i < count; i++) {
             arr[i] = Integer.parseInt( tokens.nextToken() );
         }
+
+        // 진짜 약수의 최대 최소를 찾기 위해 정렬.
         Arrays.sort( arr );
 
+        // 개수가 1개 일 때는, 1과 자기 자신을 제외한 진짜 약수가 한 개 이므로
+        // 진짜 약수를 제곱한 것이 자기 자신이 된다.
         if ( count == 1 ) {
             System.out.println( arr[0] * arr[0] );
         }
         else {
+            // 개수가 1개보다 많을 때는 진짜 약수의 최소값과 최대값의 곱이 자기 자신이 된다.
             System.out.println( arr[0] * arr[ arr.length -1 ] );
         }
 
