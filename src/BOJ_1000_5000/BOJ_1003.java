@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 public class BOJ_1003 {
     // 피보나치 함수
 
-
     /*  ( C++ 코드 )
     int fibonacci(int n) {
         if (n == 0) {
@@ -32,7 +31,7 @@ public class BOJ_1003 {
 
     private static BufferedReader br = new BufferedReader( new InputStreamReader( System.in ));
     private static StringBuilder sb = new StringBuilder();
-//
+
 //    private static int count_0 = 0;
 //    private static int count_1 = 0;
 
