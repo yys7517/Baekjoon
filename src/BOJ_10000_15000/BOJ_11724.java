@@ -14,28 +14,36 @@ public class BOJ_11724 {
     // 방향 없는 그래프가 주어졌을 때, 연결 요소의 개수를 구하는 프로그램
 
     // 연결 요소의 개수란 ? 연결된 뭉텅이(tree)의 개수
+    // 간선이 하나도 없으면, 정점의 개수가 tree의 개수가 된다.
 
-    // 연결 요소의 개수는 어떻게 구하는가 ?
+    // 접근법
+    // 연결 요소의 개수를 어떻게 구할 수 있을까 ?
+    // 1 ~ N 까지의 정점 중, 어떤 정점들은 연결되어 있을 수 있고, 아닐 수 있다.
 
-    // 1. 그래프를 어떤 정점을 기준으로 탐색을 진행한다.
-    // 2. 탐색이 진행된 정점들은 방문 처리를 한다.
-    // 3. 따라서 탐색이 진행이 되면, 그 정점을 포함한 뭉텅이(tree)를 구할 수 있다.
-    // 4. 따라서 어떤 정점을 기준으로 탐색을 하게되면, 그 정점이 포함된 tree의 정점들은 모두 방문 처리.
+    // 이를 판별하기 위해, 탐색을 진행한다. ( BFS 와 DFS 탐색 모두 가능하다. )
+    // 만약 연결되어 있다면, 탐색을 통하여 연결된 정점들은 1개의 연결 요소로 볼 수 있다.
 
-    // ==> 어떤 정점을 시작점으로 하여 탐색을 진행했을 때, 탐색이 진행되면 tree가 존재하는 것. cnt++
-    // ==> 탐색이 진행되지 않으면, 그 정점을 포함한 tree를 이미 셈을 한 것이다.
+    // *** 나머지 연결되어 있지 않은 정점들 또한 1개의 연결 요소로 볼 수 있다. ***
 
-    // 탐색은 BFS, DFS 뭘로 해도 상관없다.
+    // 문제 해결 순서
+    // 1.  1 ~ N 까지 정점들을 시작점으로 하여, 탐색을 진행한다.
+    // 2.  이 과정에서 방문된 정점은 이미 어떤 연결 요소에 포함되어 있으므로 생략한다.
+    // 3.  방문되지 않은 정점은 탐색을 진행하여 다른 정점과 연결 요소를 이루고 있는지 확인한다.
 
-    // 정점의 개수 N, 간선의 개수 M
-    // 1 <= N <= 1000
-    // 0 <= M <= N * (N-1) / 2
 
-    // N과 M을 입력
-    // M 줄에 거쳐서 간선 정보 입력.
+    // * 입력 *
+    // 정점의 개수 N과 간선의 개수 M을 입력
+    // M의 개수만큼 간선 정보 입력.
+
+    // * 출력 *
+    // 연결 요소의 개수 값
 
     private static int N;   // 정점의 개수 N
     private static int M;   // 간선의 개수 M
+
+    // 1 <= N <= 1000
+    // 0 <= M <= N * (N-1) / 2
+
 
     private static BufferedReader br;
 
@@ -73,76 +81,74 @@ public class BOJ_11724 {
             graph[u][v] = graph[v][u] = 1;
         }
 
-        int cnt = Solution( graph );
+        int cnt = 0;
+
+        for (int i = 1; i <= N ; i++) {
+            // 방문되지 않은 정점이라면
+            // 탐색을 진행하고, 탐색 진행을 시작할 때, 연결 요소 1개가 어디 정점까지 연결되어 있는지
+            // 찾는 것이므로, 탐색을 시작할 때, 연결 요소의 개수를 1 증가 시켜준다.
+            if ( visited[i] == false ) {
+                BFS(i);
+                // DFS(i);
+                // RecursiveDFS(i);
+                cnt++;
+            }
+        }
 
         System.out.println( cnt );
     }
 
-    private static int Solution( int[][] graph ) {
-        int cnt = 0;                // 연결 요소의 개수
-        boolean searched = false;   // 탐색이 진행되었는지 ?
+    // 재귀형 DFS
+    private static void RecursiveDFS( int V ) {
+        if( visited[ V ] )  // 정점이 방문되었다면 탐색 종료.
+            return;
 
-        for (int i = 1; i <= N; i++) {
-            // 그 정점이 방문되지 않았다면 그 정점을 시작으로 탐색을 시작한다.
-            if( !visited[i] ) {
-                searched = BFS( i );    // BFS
-                //searched = DFS( i );    // DFS
+        else {              // 정점이 방문되지 않았다면.
+            visited[ V ] = true;    // 방문처리
 
-                // if ( 탐색이 진행되면 ? ) ==> cnt++
-                if( searched )
-                    cnt++;
-
-                // if ( 탐색이 진행되지 않으면 ? ) ==> cnt값 그대로
+            for (int i = 1; i <= N ; i++) {
+                if( graph[V][i] == 1 )
+                    DFS(i);
             }
         }
-
-        return cnt;
     }
 
-    // Queue를 사용한 BFS
-    private static boolean BFS( int start ) {
-        boolean searched = false;
-
-        Queue<Integer> q = new LinkedList<>();
-
-        q.add( start );
-        visited[ start ] = true;
-
-        while ( !q.isEmpty() ) {
-            int poll = q.poll();
-            // System.out.printf("%d ", poll );
-            for (int i = 1; i <= N; i++) {
-                if( graph[poll][i] == 1 && visited[i] == false ) {
-                    q.add(i);
-                    visited[i] = true;
-                    searched = true;
-                }
-            }
-        }
-
-        return searched;
-    }
-
-    // Stack을 사용한 DFS
-    private static boolean DFS( int start ) {
-        boolean searched = false;
+    // 스택을 사용한 DFS
+    private static void DFS( int V ) {
         Stack<Integer> s = new Stack<>();
 
-        s.push( start );
-        visited[start] = true;
+        s.push( V );
+        visited[ V ] = true;
 
         while ( !s.isEmpty() ) {
             int pop = s.pop();
-            // System.out.printf("%d ", pop );
-            for (int i = 1; i <= N; i++) {
+
+            for (int i = 1; i <= N ; i++) {
                 if( graph[pop][i] == 1 && visited[i] == false ) {
                     s.push( i );
-                    visited[i] = true;
-                    searched = true;
+                    visited[ i ] = true;
                 }
             }
         }
-        return searched;
     }
 
+
+    // BFS ==> Queue를 사용.
+    private static void BFS( int V ) {
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add( V );
+        visited[ V ] = true;
+
+        while ( !q.isEmpty() ) {
+            int poll = q.poll();
+
+            for (int i = 1; i <= N ; i++) {
+                if( graph[poll][i] == 1 && visited[i] == false ) {
+                    q.add( i );
+                    visited[ i ] = true;
+                }
+            }
+        }
+    }
 }
