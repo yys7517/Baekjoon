@@ -64,7 +64,7 @@ public class BOJ_2606 {
 
         while ( !q.isEmpty() ) {
             int temp = q.poll();
-
+            System.out.printf("%d ", temp );
             // temp의 인접정점이 있고 ? 방문이 안됬으면 ?
             // 바이러스에 걸린 컴퓨터 수 count++
 
@@ -109,6 +109,7 @@ public class BOJ_2606 {
 
         while ( !s.isEmpty() ) {
             int temp = s.pop();
+            System.out.printf("%d ", temp );
             // 인접 정점이 존재하고 방문되지 않았다면
             for (int i = 1; i <= N ; i++) {
                 if( graph[temp][i] == 1 && !visit[i] ) {
