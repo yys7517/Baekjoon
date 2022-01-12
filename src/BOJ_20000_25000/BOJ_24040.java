@@ -37,31 +37,8 @@ public class BOJ_24040 {
 
         // 테스트 케이스 수 만큼 반복. ( 1 <= T <= 1000 )
         for (int i = 0; i < T; i++) {
-            // boolean bl = false;
-
             long N = Long.parseLong( br.readLine() );   // ( 1 <= N <= 10^18 )
 
-            /*
-            // 소수이면서
-            if ( isPrime(N) ) {
-                //1과 자기 자신의 합이 3으로 나눠질 때
-                if (  N+1 % 3 == 0 )
-                    sb.append("TAK").append('\n');
-                else
-                    sb.append("NIE").append('\n');
-            }
-            // 소수가 아닐 때는 진짜 약수를 사용하여 판별하자.
-            // 진짜 약수란 ? 1과 자기 자신을 제외한 약수를 말한다.
-            // 진짜 약수의 개수가 1개 일때 ? 그 값이 3으로 나눠지는 지 확인
-            // 진짜 약수의 개수가 1개보다 많고 짝수 개일때 ? 1 2 3 4 6 12
-            // 2랑 6, 3과 4
-            // 진짜 약수의 개수가 1개보다 많고 홀수 개일때 ? 1 2 4 8 16
-            // arr[mid] % 3 == 0 ? || 2와 8
-            else {
-
-            }
-             */
-            // long tmp = (long) Math.sqrt( N );
             if( N % 3 == 2 )
                 sb.append("TAK").append('\n');
             else if ( N % 3 == 0  ) {
@@ -74,53 +51,7 @@ public class BOJ_24040 {
             else // N % 3 == 1
                 sb.append("NIE").append('\n');
 
-            // tmp : 가로 ?
-            // N / tmp : 세로
 
-//            if( tmp * ( N / tmp ) == N ) {
-//                if (  ( tmp % 3  + ( N / tmp  ) % 3 ) % 3 == 0 )
-//                    sb.append("TAK").append('\n');
-//            }
-//            else {
-//                if ( N + 1 % 3 == 0 )
-//                    sb.append("TAK").append('\n');
-//                else
-//                    sb.append("NIE").append('\n');
-//            }
-
-            /*
-            for (long j = 1; j <= Math.sqrt(N) ; j++) {
-                if( N % j == 0 ) {
-                    if( j * j == N ) {
-                        if ( j % 3 == 0 ) {
-                            bl = true;
-                            break;
-                        }
-                    }
-                    else {
-                        if ( ( j % 3 + (N/j) % 3 ) % 3 == 0 ) {
-                            bl = true;
-                            break;
-                        }
-                    }
-                }
-            }
-             */
-
-            /*
-            for (long j = 1; j*j <= N; j++) {
-                // j가 N의 약수 일 때, j * (N/j) 는 N이 된다.
-                // 가로와 세로로 이루어진 직육면체의 둘레가 3으로 나눠지는가?
-                if( N % j == 0 ) {
-                    // long length = 2 * ( j + (N/j) )  ; // 둘레 ?
-                    long result = j % 3 + (N/j) % 3 ;
-                    if ( result == 0 ) {
-                        bl = true;
-                        break;
-                    }
-                }
-            }
-             */
 
             /*
             N = 1 일때, X  1
@@ -171,18 +102,4 @@ public class BOJ_24040 {
         }
         System.out.println( sb );
     }
-
-    /*
-    private static boolean isPrime( long N ) {
-        if ( N == 2 || N == 3 )
-            return true;
-        else {
-            for (long i = 2 ; i <= Math.sqrt( N ) ; i++) {
-                if ( N % i == 0 )
-                    return false;
-            }
-            return true;
-        }
-    }
-     */
 }
