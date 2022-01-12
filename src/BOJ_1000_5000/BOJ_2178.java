@@ -87,6 +87,7 @@ public class BOJ_2178 {
                         visited[nx][ny] = true;
                         queue.add( new Dot( nx, ny ) );
                         map[nx][ny] = map[x][y] + 1;
+                        // nx, ny는 x,y에서 1칸 이동한 것이다.
                     }
                 }
             }
