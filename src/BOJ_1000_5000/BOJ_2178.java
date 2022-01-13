@@ -79,8 +79,8 @@ public class BOJ_2178 {
             int y = dot.y;
 
             for (int k = 0; k < 4; k++) {
-                int nx = dot.x + dx[k];     // 행 번호 값 ( 세로길이 )
-                int ny = dot.y + dy[k];     // 열 번호 값 ( 가로길이 )
+                int nx = x + dx[k];     // 행 번호 값 ( 세로길이 )
+                int ny = y + dy[k];     // 열 번호 값 ( 가로길이 )
 
                 if( nx >= 0 && nx < N && ny >= 0 && ny < M ) {
                     if( map[nx][ny] == 1 && visited[nx][ny] == false ) {
