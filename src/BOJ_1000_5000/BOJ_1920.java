@@ -16,8 +16,7 @@ public class BOJ_1920 {
 
         // 해시를 활용한 풀이.
         /*
-            해시를 활용한 풀이.
-            int N = Integer.parseInt( br.readLine() );
+        int N = Integer.parseInt( br.readLine() );
         StringTokenizer token1 = new StringTokenizer( br.readLine(), " ");
 
         HashMap<String, Integer> map = new HashMap<>();
