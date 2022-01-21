@@ -27,7 +27,7 @@ public class BOJ_2960 {
         int K = Integer.parseInt( token.nextToken() );
 
         ArrayList<Integer> list = new ArrayList<>();        // 2 이상 N 이하의 모든 정수를 담는 list
-        ArrayList<Integer> removelist = new ArrayList<>();  // 지워진 값을 담는 removelist
+        ArrayList<Integer> removeList = new ArrayList<>();  // 지워진 값을 담는 removelist
 
         for (int i = 2; i <= N ; i++) {
            list.add( i );
@@ -35,20 +35,19 @@ public class BOJ_2960 {
 
         // 리스트에 값이 있을 때까지 반복한다.
         while ( !list.isEmpty() ) {
-            int P = Collections.min( list );        // 가장 작은 값을 P라고 한다.
-            removelist.add( list.remove( list.indexOf( P ) ) ); // P의 값을 지우고, 그 값을 지워진 값을 담는 리스트에 추가.
+            int P = Collections.min( list );        // 가장 작은 값을 P라고 한다, P는 소수이다.
+            removeList.add( list.remove( list.indexOf( P ) ) ); // P의 값을 지우고 반환한 값을 소수 리스트에 추가. 지워지는 수는 P, 소수.
 
             // 리스트 안에 있는 P의 배수 중 작은 값부터 지운다.
             for (int i = 0; i < list.size(); i++) {
-                int tmp = list.get(i);  // 리스트 안에 있는 값을 가져와 tmp에 담는다.
-                if( tmp % P == 0 ) {    // tmp에 담긴 값이 P의 배수이면 ? 지워진 값을 담는 리스트에 값을 추가. + list에서 삭제
-                    removelist.add( list.remove( list.indexOf(tmp) ) );
+                // 리스트를 돌면서 만난 값이 P로 나눠지면 ?
+                if( list.get(i) % P == 0 ) {
+                    removeList.add( list.remove(i) );
                 }
             }
         }
 
-        // System.out.println( removelist );
-        System.out.println( removelist.get( K - 1 ) );
+        System.out.println( removeList.get( K - 1 ) );
 
     }
 }
